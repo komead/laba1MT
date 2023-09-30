@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="picture_collections">
+        <item>cards</item>
+        <item>minecraft</item>
+
+    </string-array>
+</resources>
