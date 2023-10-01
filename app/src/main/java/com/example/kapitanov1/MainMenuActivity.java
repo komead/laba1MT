@@ -25,16 +25,17 @@ public class MainMenuActivity extends AppCompatActivity {
         Button btnApplySize = findViewById(R.id.btnApplySize);
         Spinner spinnerPictureCollection = findViewById(R.id.spinnerPictureCollection);
 
-        // обработчик кликов на кнопку "Начать игру"
-        Button btnStartGame = findViewById(R.id.btnStartGame);
-        btnStartGame.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // запускаем активность с игровым экраном
-                Intent intent = new Intent(MainMenuActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        // ставим значение по умолчанию
+        etRows.setText("4");
+        etColumns.setText("4");
+
+        // Получение массива строк из ресурсов
+        String[] dataArray = getResources().getStringArray(R.array.picture_collections);
+
+        // Создание адаптера и заполнение Spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerPictureCollection.setAdapter(adapter);
 
         // Устанавливаем обработчик кликов на кнопку
         btnApplySize.setOnClickListener(new View.OnClickListener() {
@@ -44,25 +45,21 @@ public class MainMenuActivity extends AppCompatActivity {
                 int rows = Integer.parseInt(etRows.getText().toString());
                 int columns = Integer.parseInt(etColumns.getText().toString());
 
+                if (rows == 0)
+                    rows = 4;
+                if (columns == 0)
+                    columns = 4;
+
+                // получаем выбранное значение из списка
+                String collection = spinnerPictureCollection.getSelectedItem().toString();
+
                 // Передаем выбранные размеры поля в активность игры (MainActivity)
                 Intent intent = new Intent(MainMenuActivity.this, MainActivity.class);
                 intent.putExtra("rows", rows);
                 intent.putExtra("columns", columns);
+                intent.putExtra("collection", collection);
                 startActivity(intent);
             }
         });
-
-        // Создаем адаптер для Spinner, используя массив ресурсов
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.picture_collections,
-                android.R.layout.simple_spinner_item
-        );
-
-        // Устанавливаем стиль отображения выпадающего списка
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Устанавливаем адаптер для Spinner
-        spinnerPictureCollection.setAdapter(adapter);
     }
 }

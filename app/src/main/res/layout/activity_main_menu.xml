@@ -6,20 +6,15 @@
               android:gravity="center"
               android:padding="16dp">
 
-    <Button
-            android:id="@+id/btnStartGame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Начать игру" />
 
-    <!-- Пример элемента для ввода количества строк -->
+    <!-- элемент для ввода количества строк -->
     <EditText
             android:id="@+id/etRows"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Количество строк" />
 
-    <!-- Пример элемента для ввода количества столбцов -->
+    <!-- элемент для ввода количества столбцов -->
     <EditText
             android:id="@+id/etColumns"
             android:layout_width="wrap_content"
@@ -31,15 +26,15 @@
             android:id="@+id/btnApplySize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Применить размер" />
+            android:text="Начать игру" />
 
     <!-- Spinner для выбора набора картинок -->
     <Spinner
             android:id="@+id/spinnerPictureCollection"
-            android:layout_width="match_parent"
+            android:layout_width="203dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:entries="@array/picture_collections" />
+            android:entries="@array/picture_collections"/>
 
 
 </LinearLayout>

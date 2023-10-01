@@ -20,11 +20,12 @@ public class MainActivity extends AppCompatActivity {
         // Получаем переданные значения размеров поля
         int rows = getIntent().getIntExtra("rows", 4);
         int columns = getIntent().getIntExtra("columns", 4);
+        String collection = getIntent().getStringExtra("collection");
 
         mGrid.setNumColumns(columns); // Устанавливаем количество столбцов
         mGrid.setEnabled(true);
 
-        mAdapter = new GridAdapter(this, rows, columns, "minecraft"); // Используем выбранные размеры, но без указания набора картинок
+        mAdapter = new GridAdapter(this, rows, columns, collection); // Используем выбранные размеры, но без указания набора картинок
         mGrid.setAdapter(mAdapter);
 
         mGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
