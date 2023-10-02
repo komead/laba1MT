@@ -3,9 +3,35 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:gravity="center"
               android:padding="16dp">
 
 
+    <TextView
+            android:text="Результаты"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/textView"/>
+
+    <TextView
+            android:text="Время игры"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:id="@+id/gameTime"/>
+
+    <TextView
+            android:text="Ваши ходы"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:id="@+id/turns"/>
+
+    <Button
+            android:text="Главное меню"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:id="@+id/toMainMenu"/>
 
 </LinearLayout>

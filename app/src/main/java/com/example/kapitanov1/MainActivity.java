@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private Runnable timerRunnable;
     private TextView timerTextView;
     private int seconds = 0;
-
+    private int numberOfTurns = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +50,21 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new GridAdapter(this, rows, columns, collection); // Используем выбранные размеры, набор картинок
         mGrid.setAdapter(mAdapter);
 
+        // старт секундомера
         timerHandler.postDelayed(timerRunnable, 1000);
 
         mGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                numberOfTurns++;
+
                 if (mAdapter.handleCardClick(position))
                 {
                     timerHandler.removeCallbacks(timerRunnable);
 
                     Intent intent = new Intent(MainActivity.this, EndGame.class);
+                    intent.putExtra("time", seconds);
+                    intent.putExtra("turns", numberOfTurns);
                     startActivity(intent);
                 }
             }
