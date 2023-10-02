@@ -15,22 +15,23 @@ import java.util.Collections;
 public class GridAdapter extends BaseAdapter {
     private Context mContext;
     private Integer mCols, mRows;
+    private Resources mRes; // Ресурсы приложения
+
 
     private ArrayList<String> arrPict; // массив картинок
     private String PictureCollection; // Префикс набора картинок
-    private Resources mRes; // Ресурсы приложени
-
     public static enum Status {CELL_OPEN, CELL_CLOSE, CELL_DELETE};
-
     private ArrayList<Status> arrStatus; // состояние ячеек
+    private int closedCards = 0;
+
 
     // Добавим переменную для отслеживания первой открытой карточки
     private int firstCardPosition = -1;
+    private boolean isClickable = true; // флаг для отслеживания кликабельности
 
     private Handler handler = new Handler();
     private static final long DELAY_MS = 1000; // Задержка в миллисекундах
 
-    private boolean isClickable = true; // Добавьте флаг для отслеживания кликабельности
 
     public GridAdapter(Context context, int cols, int rows, String pictureCollection) {
         mContext = context;
@@ -83,13 +84,11 @@ public class GridAdapter extends BaseAdapter {
     public void openCell(int position) {
         arrStatus.set(position, Status.CELL_OPEN);
         notifyDataSetChanged(); // Обновить адаптер, чтобы обновить отображение
-        Log.d("GridAdapter", "Открыта карточка на позиции: " + position);
     }
 
     public void closeCell(int position) {
         arrStatus.set(position, Status.CELL_CLOSE);
         notifyDataSetChanged(); // Обновить адаптер, чтобы обновить отображение
-        Log.d("GridAdapter", "Закрыта карточка на позиции: " + position);
     }
 
     private void closeAllCells() {
@@ -102,7 +101,6 @@ public class GridAdapter extends BaseAdapter {
     public void deleteCell(int position) {
         arrStatus.set(position, Status.CELL_DELETE);
         notifyDataSetChanged(); // Обновить адаптер, чтобы обновить отображение
-        Log.d("GridAdapter", "Удалена карточка на позиции: " + position);
     }
 
     // Метод для проверки совпадения пары карточек по их позициям
@@ -148,7 +146,15 @@ public class GridAdapter extends BaseAdapter {
         return view;
     }
 
-    public void handleCardClick(final int position) {
+    public boolean checkEnd() {
+        if (arrStatus.contains(Status.CELL_OPEN) || arrStatus.contains(Status.CELL_CLOSE))
+            return false;
+        return true;
+    }
+
+    public boolean handleCardClick(final int position) {
+        boolean end = false;
+
         // Проверяем, что карточка закрыта (CELL_CLOSE) и можно обрабатывать клик
         if (arrStatus.get(position) == Status.CELL_CLOSE && isClickable) {
             // Если это первая карточка, сохраняем ее позицию
@@ -158,11 +164,18 @@ public class GridAdapter extends BaseAdapter {
             } else {
                 // Если это вторая карточка, сравниваем с первой
                 openCell(position);
+
                 if (isMatchingPair(firstCardPosition, position)) {
+                    closedCards += 2;
+
                     // Совпадение, добавляем задержку перед закрытием
                     final int firstPos = firstCardPosition;
                     final int secondPos = position;
                     isClickable = false; // Блокируем обработку кликов
+
+                    if (closedCards == mCols * mRows)
+                        end = true;
+
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -187,5 +200,6 @@ public class GridAdapter extends BaseAdapter {
                 firstCardPosition = -1; // Сбрасываем первую карточку
             }
         }
+        return end;
     }
 }

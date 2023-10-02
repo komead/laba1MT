@@ -1,5 +1,6 @@
 package com.example.kapitanov1;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -25,13 +26,18 @@ public class MainActivity extends AppCompatActivity {
         mGrid.setNumColumns(columns); // Устанавливаем количество столбцов
         mGrid.setEnabled(true);
 
-        mAdapter = new GridAdapter(this, rows, columns, collection); // Используем выбранные размеры, но без указания набора картинок
+        mAdapter = new GridAdapter(this, rows, columns, collection); // Используем выбранные размеры, набор картинок
         mGrid.setAdapter(mAdapter);
 
         mGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mAdapter.handleCardClick(position);
+                if (mAdapter.handleCardClick(position))
+                {
+                    // Передаем выбранные размеры поля в активность игры (MainActivity)
+                    Intent intent = new Intent(MainActivity.this, EndGame.class);
+                    startActivity(intent);
+                }
             }
         });
     }

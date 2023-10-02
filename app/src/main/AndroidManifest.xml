@@ -25,6 +25,11 @@
                 android:name=".MainActivity"
                 android:label="Игра">
         </activity>
+
+        <activity
+                android:name=".EndGame"
+                android:label="Конец игры">
+        </activity>
     </application>
 
 </manifest>

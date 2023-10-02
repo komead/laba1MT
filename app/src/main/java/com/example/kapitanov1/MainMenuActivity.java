@@ -22,7 +22,7 @@ public class MainMenuActivity extends AppCompatActivity {
         // Находим элементы интерфейса по их ID
         EditText etRows = findViewById(R.id.etRows);
         EditText etColumns = findViewById(R.id.etColumns);
-        Button btnApplySize = findViewById(R.id.btnApplySize);
+        Button btnStartGame = findViewById(R.id.btnApplySize);
         Spinner spinnerPictureCollection = findViewById(R.id.spinnerPictureCollection);
 
         // ставим значение по умолчанию
@@ -38,17 +38,12 @@ public class MainMenuActivity extends AppCompatActivity {
         spinnerPictureCollection.setAdapter(adapter);
 
         // Устанавливаем обработчик кликов на кнопку
-        btnApplySize.setOnClickListener(new View.OnClickListener() {
+        btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Получаем введенные пользователем значения количества строк и столбцов
                 int rows = Integer.parseInt(etRows.getText().toString());
                 int columns = Integer.parseInt(etColumns.getText().toString());
-
-                if (rows == 0)
-                    rows = 4;
-                if (columns == 0)
-                    columns = 4;
 
                 // получаем выбранное значение из списка
                 String collection = spinnerPictureCollection.getSelectedItem().toString();
