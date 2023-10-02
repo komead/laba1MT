@@ -3,6 +3,11 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical" >
+    <TextView
+            android:text="Время игры: "
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/timerTextView"/>
 
     <GridView
             android:id="@+id/field"
@@ -14,5 +19,6 @@
             android:stretchMode="columnWidth"
             android:gravity="center"
             android:clickable="true"
-            android:focusable="true"/>
+            android:focusable="true">
+    </GridView>
 </LinearLayout>
