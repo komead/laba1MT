@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 // Увеличиваем счетчик секунд и обновляем текстовое поле
                 seconds++;
-                timerTextView.setText("Время: " + seconds + " секунд");
+                timerTextView.setText("Время игры: " + seconds / 60 + " минут " + seconds % 60 + " секунд");
 
                 // Постоянно запускаем этот Runnable каждую секунду
                 timerHandler.postDelayed(this, 1000);
