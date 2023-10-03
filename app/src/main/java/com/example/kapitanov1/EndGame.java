@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EndGame extends AppCompatActivity {
     private TextView tvTime;
-    private TextView textView;
+    //private TextView textView;
     private TextView tvTurns;
     private Button btnMainMenu;
 
@@ -19,15 +19,15 @@ public class EndGame extends AppCompatActivity {
         setContentView(R.layout.activity_end_game);
 
         tvTime = findViewById(R.id.gameTime);
-        textView = findViewById(R.id.textView);
+        //textView = findViewById(R.id.textView);
         tvTurns = findViewById(R.id.turns);
         btnMainMenu = findViewById(R.id.toMainMenu);
 
         int gameTime = getIntent().getIntExtra("time", 0);
         int numberOfTurns = getIntent().getIntExtra("turns", 0);
 
-        tvTime.setText("Ваше время игры: " + gameTime / 60 + " минут " + gameTime % 60 + " секунд");
-        tvTurns.setText("Сделано ходов: " + numberOfTurns);
+        tvTime.setText(gameTime / 60 + " minutes " + gameTime % 60 + " seconds");
+        tvTurns.setText(Integer.toString(numberOfTurns));
 
         btnMainMenu.setOnClickListener(new View.OnClickListener() {
             @Override

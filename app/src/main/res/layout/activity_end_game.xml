@@ -3,35 +3,77 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:padding="16dp">
-
+              android:padding="16dp"
+              android:background="@color/white">
 
     <TextView
-            android:text="Результаты"
+            android:id="@+id/textView"
+            android:text="Results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:id="@+id/textView"/>
+            android:textSize="40sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/aclonica"
+            android:textColor="#73088F"/>
 
-    <TextView
-            android:text="Время игры"
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:id="@+id/gameTime"/>
-
-    <TextView
-            android:text="Ваши ходы"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:id="@+id/turns"/>
+            android:layout_height="197dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="158dp"
+                android:layout_height="match_parent">
+            <TextView
+                    android:id="@+id/textView7"
+                    android:text="Game time:"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+            <TextView
+                    android:id="@+id/textView8"
+                    android:text="Your turns:"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:id="@+id/gameTime"
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+            <TextView
+                    android:id="@+id/turns"
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
-            android:text="Главное меню"
+            android:id="@+id/toMainMenu"
+            android:text="Main menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:id="@+id/toMainMenu"/>
+            android:textSize="20sp" android:background="#9228ED"/>
 
 </LinearLayout>

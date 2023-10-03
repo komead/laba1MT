@@ -4,10 +4,22 @@
               android:layout_height="fill_parent"
               android:orientation="vertical" >
     <TextView
-            android:text="Время игры: "
+            android:text="Developer: Капитанов Дмитрий"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textSize="10sp"/>
+    <TextView
+            android:text="Game time: "
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:id="@+id/timerTextView"/>
+            android:id="@+id/timerTextView"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="20dp"/>
 
     <GridView
             android:id="@+id/field"

@@ -3,38 +3,104 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:gravity="center"
               android:padding="16dp">
 
 
-    <!-- элемент для ввода количества строк -->
-    <EditText
-            android:id="@+id/etRows"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Количество строк" />
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:text="Main menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:textSize="40sp"
+                android:textColor="#73088F"
+                android:fontFamily="@font/aclonica"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="203dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="186dp"
+                    android:layout_height="match_parent">
+                <TextView
+                        android:text="Number of lines:"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:id="@+id/textView2"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:textColor="@color/black"/>
+                <TextView
+                        android:text="Number of rows:"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:id="@+id/textView3"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:textColor="@color/black"/>
+                <TextView
+                        android:text="Set of pictures:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView6"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <EditText
+                        android:id="@+id/etRows"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter lines"
+                        android:textColor="@color/black"/>
+                <EditText
+                        android:id="@+id/etColumns"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter rows"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black"/>
+                <Spinner
+                        android:id="@+id/spinnerPictureCollection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:entries="@array/picture_collections"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
-    <!-- элемент для ввода количества столбцов -->
-    <EditText
-            android:id="@+id/etColumns"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Количество столбцов" />
-
-    <!-- Кнопка для применения выбранных размеров поля -->
-    <Button
-            android:id="@+id/btnApplySize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Начать игру" />
-
-    <!-- Spinner для выбора набора картинок -->
-    <Spinner
-            android:id="@+id/spinnerPictureCollection"
-            android:layout_width="203dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:entries="@array/picture_collections"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+        <Button
+                android:id="@+id/btnApplySize"
+                android:layout_width="121dp"
+                android:layout_height="wrap_content"
+                android:text="Start game"
+                android:background="#9228ED"
+                android:layout_marginTop="25dp"/>
+    </LinearLayout>
 
 
 </LinearLayout>
