@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("time", seconds);
                     intent.putExtra("turns", numberOfTurns);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

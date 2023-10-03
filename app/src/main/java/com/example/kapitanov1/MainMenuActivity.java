@@ -54,6 +54,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 intent.putExtra("columns", columns);
                 intent.putExtra("collection", collection);
                 startActivity(intent);
+                finish();
             }
         });
     }
