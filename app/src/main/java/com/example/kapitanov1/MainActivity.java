@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
     private GridView mGrid;
     private GridAdapter mAdapter;
+    private Button toMainMenu;
 
     private Handler timerHandler = new Handler();
     private Runnable timerRunnable;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         mGrid = findViewById(R.id.field);
         timerTextView = findViewById(R.id.timerTextView);
+        toMainMenu = findViewById(R.id.returnToMainMenu);
 
         timerRunnable = new Runnable() {
             @Override
@@ -68,6 +71,15 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
+            }
+        });
+
+        toMainMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainMenuActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

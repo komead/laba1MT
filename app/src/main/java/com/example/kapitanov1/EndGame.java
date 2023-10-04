@@ -19,7 +19,6 @@ public class EndGame extends AppCompatActivity {
         setContentView(R.layout.activity_end_game);
 
         tvTime = findViewById(R.id.gameTime);
-        //textView = findViewById(R.id.textView);
         tvTurns = findViewById(R.id.turns);
         btnMainMenu = findViewById(R.id.toMainMenu);
 

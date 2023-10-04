@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class GridAdapter extends BaseAdapter {
     private Context mContext;
@@ -23,6 +24,7 @@ public class GridAdapter extends BaseAdapter {
     public static enum Status {CELL_OPEN, CELL_CLOSE, CELL_DELETE};
     private ArrayList<Status> arrStatus; // состояние ячеек
     private int closedCards = 0;
+    private int numberOfCards = 22;
 
 
     // Добавим переменную для отслеживания первой открытой карточки
@@ -57,10 +59,15 @@ public class GridAdapter extends BaseAdapter {
     private void makePictArray() {
         // Очищаем массив
         arrPict.clear();
+        Random random = new Random();
         // Добавляем "лицевую" сторону карточек
-        for (int i = 0; i < ((mCols * mRows) / 2); i++) {
-            arrPict.add(PictureCollection + Integer.toString(i));
-            arrPict.add(PictureCollection + Integer.toString(i));
+        while (arrPict.size() < mRows * mCols) {
+            // Генерируем случайное число
+            int randomNumber = random.nextInt(numberOfCards);
+            if (!arrPict.contains(PictureCollection + Integer.toString(randomNumber))) {
+                arrPict.add(PictureCollection + Integer.toString(randomNumber));
+                arrPict.add(PictureCollection + Integer.toString(randomNumber));
+            }
         }
         // Перемешиваем
         Collections.shuffle(arrPict);
