@@ -20,16 +20,14 @@ public class MainMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         // Находим элементы интерфейса по их ID
-        EditText etRows = findViewById(R.id.etRows);
-        EditText etColumns = findViewById(R.id.etColumns);
+        Spinner etRows = findViewById(R.id.etRows);
+        Spinner etColumns = findViewById(R.id.etColumns);
         Button btnStartGame = findViewById(R.id.btnApplySize);
         Spinner spinnerPictureCollection = findViewById(R.id.spinnerPictureCollection);
 
-        // ставим значение по умолчанию
-        etRows.setText("4");
-        etColumns.setText("4");
-
         // Получение массива строк из ресурсов
+        String[] rowsArray = getResources().getStringArray(R.array.allowed_rows);
+        String[] columnsArray = getResources().getStringArray(R.array.allowed_columns);
         String[] dataArray = getResources().getStringArray(R.array.picture_collections);
 
         // Создание адаптера и заполнение Spinner
@@ -37,13 +35,21 @@ public class MainMenuActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPictureCollection.setAdapter(adapter);
 
+        ArrayAdapter<String> adapterRows = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, rowsArray);
+        adapterRows.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        etRows.setAdapter(adapterRows);
+
+        ArrayAdapter<String> adapterColumns = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, columnsArray);
+        adapterColumns.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        etColumns.setAdapter(adapterColumns);
+
         // Устанавливаем обработчик кликов на кнопку
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Получаем введенные пользователем значения количества строк и столбцов
-                int rows = Integer.parseInt(etRows.getText().toString());
-                int columns = Integer.parseInt(etColumns.getText().toString());
+                int rows = Integer.parseInt(etRows.getSelectedItem().toString());
+                int columns = Integer.parseInt(etColumns.getSelectedItem().toString());
 
                 // получаем выбранное значение из списка
                 String collection = spinnerPictureCollection.getSelectedItem().toString();

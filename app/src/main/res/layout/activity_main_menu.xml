@@ -54,34 +54,32 @@
                 <TextView
                         android:text="Set of pictures:"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:id="@+id/textView6"
                         android:layout_marginTop="10dp"
                         android:textSize="18sp"
                         android:textAlignment="center"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" android:gravity="center"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                <EditText
+                <Spinner
                         android:id="@+id/etRows"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Enter lines"
-                        android:textColor="@color/black"/>
-                <EditText
+                        android:layout_height="45dp"
+                        android:entries="@array/allowed_rows"/>
+                <Spinner
                         android:id="@+id/etColumns"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Enter rows"
+                        android:layout_height="45dp"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/black"/>
+                        android:entries="@array/allowed_columns"/>
                 <Spinner
                         android:id="@+id/spinnerPictureCollection"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginTop="10dp"
                         android:entries="@array/picture_collections"/>
             </LinearLayout>
