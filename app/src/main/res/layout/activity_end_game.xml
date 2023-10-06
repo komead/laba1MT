@@ -11,7 +11,7 @@
             android:text="Results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             android:textSize="40sp"
             android:textAlignment="center"
             android:fontFamily="@font/aclonica"
@@ -74,6 +74,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textSize="20sp" android:background="#9228ED"/>
+            android:textSize="20sp"
+            android:background="#9228ED"/>
+
+    <TextView
+            android:text="Developer: Капитанов Дмитрий"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textSize="10sp"
+            android:layout_marginLeft="5dp"/>
 
 </LinearLayout>

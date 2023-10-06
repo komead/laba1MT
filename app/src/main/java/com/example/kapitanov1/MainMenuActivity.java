@@ -22,8 +22,9 @@ public class MainMenuActivity extends AppCompatActivity {
         // Находим элементы интерфейса по их ID
         Spinner etRows = findViewById(R.id.etRows);
         Spinner etColumns = findViewById(R.id.etColumns);
-        Button btnStartGame = findViewById(R.id.btnApplySize);
         Spinner spinnerPictureCollection = findViewById(R.id.spinnerPictureCollection);
+        Button btnStartGame = findViewById(R.id.btnApplySize);
+        Button buttonAuthor = findViewById(R.id.buttonAuthor);
 
         // Получение массива строк из ресурсов
         String[] rowsArray = getResources().getStringArray(R.array.allowed_rows);
@@ -61,6 +62,13 @@ public class MainMenuActivity extends AppCompatActivity {
                 intent.putExtra("collection", collection);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        buttonAuthor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buttonAuthor.setText("Капитанов Дмитрий");
             }
         });
     }

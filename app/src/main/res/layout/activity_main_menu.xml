@@ -19,7 +19,7 @@
                 android:textColor="#73088F"
                 android:fontFamily="@font/aclonica"
                 android:textAlignment="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="40dp"/>
     </LinearLayout>
     <LinearLayout
@@ -59,7 +59,8 @@
                         android:layout_marginTop="10dp"
                         android:textSize="18sp"
                         android:textAlignment="center"
-                        android:textColor="@color/black" android:gravity="center"/>
+                        android:textColor="@color/black"
+                        android:gravity="center"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
@@ -93,11 +94,18 @@
             android:gravity="center_horizontal">
         <Button
                 android:id="@+id/btnApplySize"
-                android:layout_width="121dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="Start game"
                 android:background="#9228ED"
                 android:layout_marginTop="25dp"/>
+        <Button
+                android:text="Who is author?"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonAuthor"
+                android:background="#9228ED"
+                android:layout_marginTop="10dp"/>
     </LinearLayout>
 
 
